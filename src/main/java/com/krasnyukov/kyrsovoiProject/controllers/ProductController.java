@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/market")
 public class ProductController {
 
     private final ProductDAO productDAO;
@@ -19,15 +19,16 @@ public class ProductController {
         this.productDAO = productDAO;
     }
 
+    @GetMapping()
     public String index(Model model) {
         model.addAttribute("product", productDAO.index());
-        return "market/product";
+        return "market/productsList";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("product", productDAO.show(id));
-        return "market/productsList";
+        return "market/product";
     }
 
 }
