@@ -25,7 +25,8 @@ public class ProductDAO {
     }
 
     public void save(Product product) {
-
+        jdbcTemplate.update("INSERT INTO product(name, category, price, description, producingCountry) VALUES(?, ?, ?, ?, ?)",
+                product.getName(), product.getCategory(), product.getPrice(), product.getDescription(), product.getProducingCountry());
     }
 
     public void update(int id, Product product) {

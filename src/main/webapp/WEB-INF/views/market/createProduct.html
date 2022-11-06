@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <form th:method="POST" th:action="@{/market}" th:object="${product}">
+    <label for="name">Название товара: </label>
+    <input type="text" th:field="*{name}" id="name"> <br>
+    <label for="category">Котегорию товара: </label>
+    <input type="text" th:field="*{category}" id="category"> <br>
+    <label for="price">Стоимость: </label>
+    <input type="text" th:field="*{price}" id="price"> <br>
+    <label for="description">Описание: </label>
+    <input type="text" th:field="*{description}" id="description"> <br>
+    <label for="producingCountry">Страна производитель: </label>
+    <input type="text" th:field="*{producingCountry}" id="producingCountry"> <br>
+    <input type="submit" value="Создать карточку товара">
+  </form>
+
+</body>
+</html>
